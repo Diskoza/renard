@@ -1,0 +1,89 @@
+{
+  "_comment": "Белый список приложений. ключ: {aliases, start (путь/команда/URI), process (имя процесса без .exe)}. Дополняй своими.",
+  "chrome": {
+    "aliases": [
+      "хром",
+      "chrome",
+      "браузер",
+      "гугл хром"
+    ],
+    "start": "chrome",
+    "process": "chrome"
+  },
+  "explorer": {
+    "aliases": [
+      "проводник",
+      "explorer"
+    ],
+    "start": "explorer",
+    "process": "explorer"
+  },
+  "notepad": {
+    "aliases": [
+      "блокнот",
+      "notepad"
+    ],
+    "start": "notepad",
+    "process": "notepad"
+  },
+  "discord": {
+    "aliases": [
+      "дискорд",
+      "discord",
+      "дс"
+    ],
+    "start": "%LOCALAPPDATA%\\Discord\\Update.exe --processStart Discord.exe",
+    "process": "Discord"
+  },
+  "telegram": {
+    "aliases": [
+      "телеграм",
+      "телега",
+      "telegram",
+      "тг"
+    ],
+    "start": "%APPDATA%\\Telegram Desktop\\Telegram.exe",
+    "process": "Telegram"
+  },
+  "spotify": {
+    "aliases": [
+      "спотифай",
+      "spotify"
+    ],
+    "start": "spotify:",
+    "process": "Spotify"
+  },
+  "steam": {
+    "aliases": [
+      "стим",
+      "steam"
+    ],
+    "start": "steam:",
+    "process": "steam"
+  },
+  "vscode": {
+    "aliases": [
+      "vscode",
+      "вс код",
+      "vs code"
+    ],
+    "start": "code",
+    "process": "Code"
+  },
+  "taskmgr": {
+    "aliases": [
+      "диспетчер задач",
+      "task manager"
+    ],
+    "start": "taskmgr",
+    "process": "Taskmgr"
+  },
+  "calc": {
+    "aliases": [
+      "калькулятор",
+      "calc"
+    ],
+    "start": "calc",
+    "process": "CalculatorApp"
+  }
+}

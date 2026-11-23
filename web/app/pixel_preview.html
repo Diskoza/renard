@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><title>Renard pixel preview</title>
+<style>
+  body { margin:0; padding:14px; background:#3a6ea5; color:#fff; font:12px "Segoe UI", sans-serif; }
+  .row { display:flex; flex-wrap:wrap; gap:14px; align-items:flex-end; }
+  .cell { display:flex; flex-direction:column; align-items:center; gap:4px; }
+  .floor { border-bottom:3px solid #262b33; }
+  canvas { image-rendering:pixelated; }
+</style></head>
+<body>
+<div class="row" id="chars"></div><br>
+<div class="row" id="scenes"></div>
+<script type="module">
+  import { PixelScene, ACTIVITIES, drawChar, PAL, loadSheet } from '/app/pixel.js';
+  const sheetName = new URLSearchParams(location.search).get('sheet');
+  const sheet = sheetName ? await loadSheet(sheetName).catch(() => null) : null;
+  const chars = document.getElementById('chars'), scenes = document.getElementById('scenes');
+  const variants = [['sit', {}], ['blink', { head: 'blink' }], ['happy', { head: 'happy' }], ['look', { head: 'left' }], ['wave', { torso: 'wave' }],
+    ['hold', { torso: 'hold' }], ['phones', { phones: true }], ['sleep', { head: 'sleep', pose: 'sit' }], ['stand', { pose: 'stand' }]];
+  for (const [name, o] of variants) {
+    const cv = document.createElement('canvas'); cv.width = 24; cv.height = 32; cv.style.width = '144px'; cv.style.height = '192px';
+    const c = cv.getContext('2d'); drawChar(c, 2, 1, { t: .3, ...o });
+    const d = document.createElement('div'); d.className = 'cell'; d.append(cv, name); chars.append(d);
+  }
+  const list = [];
+  for (const [a, info] of Object.entries(ACTIVITIES)) for (const place of info.places) {
+    const cv = document.createElement('canvas'); const s = new PixelScene(cv, { size: +(new URLSearchParams(location.search).get('s') || 1) }); s.setPlace(place); s.setActivity(a); s.sheet = sheet;
+    if (a === 'sit' && place === 'window') s.wave(99);
+    const d = document.createElement('div'); d.className = 'cell'; const box = document.createElement('div'); box.className = 'floor'; box.append(cv);
+    d.append(box, `${a} · ${place}`); scenes.append(d); list.push(s);
+  }
+  let last = performance.now();
+  (function loop(now) { const dt = Math.min(.1, (now - last) / 1000); last = now; for (const s of list) { s.update(dt); s.render(); } requestAnimationFrame(loop); })(last);
+  window.ready = true;
+</script>
+</body></html>

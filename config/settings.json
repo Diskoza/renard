@@ -1,0 +1,99 @@
+{
+  "name": "Renard",
+  "ollama_url": "http://127.0.0.1:11434",
+  "home_city": "",
+  "host": "127.0.0.1",
+  "port": 8790,
+  "num_ctx": 16384,
+  "modes": {
+    "low": {
+      "model": "gemma4:12b",
+      "keep_alive": "5m",
+      "think": false,
+      "temperature": 0.4,
+      "num_predict": 2500,
+      "max_steps": 6,
+      "about": "низкий: разговор, простые вопросы, команды"
+    },
+    "medium": {
+      "model": "gemma4:12b",
+      "keep_alive": "5m",
+      "think": false,
+      "temperature": 0.2,
+      "num_predict": 3500,
+      "max_steps": 10,
+      "about": "средний: файлы, анализ, обычный код"
+    },
+    "high": {
+      "model": "qwen3.6:35b-a3b",
+      "keep_alive": "2m",
+      "think": false,
+      "temperature": 0.1,
+      "num_predict": 4000,
+      "max_steps": 14,
+      "num_ctx": 16384,
+      "about": "высокий: сложный код и многошаговые задачи"
+    },
+    "study": {
+      "model": "gemma4:12b",
+      "keep_alive": "5m",
+      "think": false,
+      "temperature": 0.15,
+      "num_predict": 4000,
+      "max_steps": 6,
+      "num_ctx": 16384,
+      "about": "учёба: школьные предметы, тесты INF, проверка фактов",
+      "subjects": {}
+    },
+    "operator": {
+      "model": "gemma4:12b",
+      "keep_alive": "5m",
+      "think": false,
+      "temperature": 0.1,
+      "num_predict": 300,
+      "num_ctx": 12288,
+      "max_steps": 16,
+      "about": "оператор программ (app_do): решения по шагам"
+    }
+  },
+  "agent": {
+    "max_tool_steps": 6,
+    "history_messages": 10,
+    "memory_budget_chars": 6000,
+    "memory_pass_idle_sec": 120
+  },
+  "files": {
+    "allowed_roots": [
+      "~\\Desktop",
+      "~\\Documents",
+      "~\\Downloads",
+      "~\\Pictures",
+      "~\\Videos"
+    ],
+    "read_limit_chars": 20000
+  },
+  "workspace": "workspace",
+  "monitor": {
+    "enabled": true,
+    "interval_sec": 30,
+    "cpu_pct": 95,
+    "ram_pct": 92,
+    "gpu_temp_c": 85,
+    "disk_free_pct": 3,
+    "sustain_checks": 4,
+    "cooldown_min": 30
+  },
+  "voice": {
+    "stt_model": "large-v3-turbo",
+    "stt_device": "cuda",
+    "stt_compute": "int8_float16",
+    "stt_idle_unload_sec": 300,
+    "language": "ru",
+    "tts_voice": "ru_RU-irina-medium",
+    "tts_enabled": true
+  },
+  "school": {
+    "substitutions_url": "",
+    "timetable_url": ""
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "_comment": "Радио: ключ -> {aliases, url}. Ссылки на потоки можно заменить своими.",
+  "record": {"aliases": ["рекорд", "record"], "url": "https://radiorecord.hostingradio.ru/rr_main96.aacp"},
+  "europa": {"aliases": ["европа плюс", "europa plus", "европа"], "url": "https://ep256.hostingradio.ru:8052/europaplus256.mp3"},
+  "rmf":    {"aliases": ["rmf", "рмф"], "url": "https://rs6-krk2.rmfstream.pl/RMFFM48"}
+}

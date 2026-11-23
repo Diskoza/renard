@@ -1,0 +1,8 @@
+{
+  "name": "devkit",
+  "title": "DevKit — методы опытного разработчика",
+  "version": "1.0.0",
+  "description": "Разведка программ (probe_app), Python-скрипты с библиотекой nx (pc_script; изменения только после «да»), самообучение: удачные решения сохраняются как навыки (save_skill / run_skill).",
+  "tools": ["probe_app", "pc_script", "pc_script_write", "apply_sandbox", "save_skill", "run_skill"],
+  "permissions": ["read_files", "read_windows", "run_scripts", "change_with_confirmation"]
+}
